@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'mindwave-app'`, () => {
+  it(`should have as title 'partial-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('mindwave-app');
+    expect(app.title).toEqual('partial-app');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('mindwave-app app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('partial-app app is running!');
   });
 });

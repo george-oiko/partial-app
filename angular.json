@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mindwave-app": {
+    "partial-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mindwave-app",
+            "outputPath": "dist/partial-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -52,6 +52,22 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "first": {
+              "fileReplacements": [
+                {
+                  "replace": "src/routes/routes.ts",
+                  "with": "src/routes/routes.first.ts"
+                }
+              ]
+            },
+            "second": {
+              "fileReplacements": [
+                {
+                  "replace": "src/routes/routes.ts",
+                  "with": "src/routes/routes.second.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -60,10 +76,16 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "mindwave-app:build:production"
+              "browserTarget": "partial-app:build:production"
             },
             "development": {
-              "browserTarget": "mindwave-app:build:development"
+              "browserTarget": "partial-app:build:development"
+            },
+            "first": {
+              "browserTarget": "partial-app:build:first"
+            },
+            "second": {
+              "browserTarget": "partial-app:build:second"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +93,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mindwave-app:build"
+            "browserTarget": "partial-app:build"
           }
         },
         "test": {
